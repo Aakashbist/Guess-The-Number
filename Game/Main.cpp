@@ -1,5 +1,7 @@
 #include"CPlayer.h"
 #include"Game.h"
+#include"Helper.h"
+#include<Windows.h>
 
 using namespace std;
 
@@ -7,29 +9,32 @@ void main()
 {
 	PLAYER player;
 	GAME game;
+	HELPER helper;
 	game.welcome();
 	int option;
 
 	do {
 		game.getMenu();
-		cout << "\tChoose your option:";
+		helper.print("Choose your option: ");
 		cin >> option;
-		cout << "\n\n";
 		switch (option)
 		{
 		case 1:
 			player.setPlayer();
 			break;
 		case 2:
+			helper.clearScreen();
 			game.getInstruction();
+			system("pause");
+			helper.clearScreen();
+			break;
+		case 3:
+			// ignore
 			break;
 		default:
-			cout << "Please choose valid options";
+			helper.print("Please choose valid options");
 			break;
 		}
 
-	} while (option != 2);
-
-	system("pause");
-
+	} while (option != 3);
 }
