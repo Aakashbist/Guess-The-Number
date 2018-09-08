@@ -2,6 +2,7 @@
 #include"Game.h"
 #include<fstream>
 #include<ctype.h>
+#include"Helper.h"
 #include<filesystem>
 
 #define highscoreFile "HighScore.txt"
@@ -11,13 +12,19 @@ ofstream fout;
 ifstream fin;
 string name;
 int score;
+int level;
+HELPER helper;
 
 void PLAYER::setPlayer()
 {
-	cout << "\tEnter your name: ";
+	helper.print("Enter your name: ");
 	cin >> name;
 	if (checkPlayer(name)) {
-		cout << "\n\tWelcome Back " << name << "  Score: " << getScore() << "  Level: " << getLevel() << "!!\n";
+		int score = getScore();
+		int level = getLevel();
+
+		string message = "Welcome Back " + name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
+		helper.print(message);
 	}
 	else
 	{
@@ -45,22 +52,16 @@ int PLAYER::getScore(void)
 	return 0;
 }
 
-bool PLAYER::checkPlayer(string player)
+bool PLAYER::checkPlayer(string playerName)
 {
-	string name;
-	int score, level;
 	fin.open(highscoreFile);
-	if (highscoreFile)
+	while (!fin.eof())
 	{
-
-		while (!fin.eof())
-		{
-			fin >> name;
-			fin >> score;
-			fin >> level;
-			if (name == player) {
-				return true;
-			}
+		fin >> name;
+		fin >> score;
+		fin >> level;
+		if (name == playerName) {
+			return true;
 		}
 	}
 	return false;
