@@ -71,12 +71,12 @@ void GAME::startGame()
 				helper.print("wrong guess.your guess is above the exact guess ");
 			}
 			counter++;
-			firstLevelAttempt ++;
+			firstcorrectAttempt ++;
 		}
 		else 
 		{
 			helper.print(" \nCongratulation ");		
-			firstLevelAttempt ++;
+			firstcorrectAttempt ++;
 			break;
 		}
 		
