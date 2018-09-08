@@ -10,6 +10,8 @@ public:
 	void getWinMessage();
 	void getLoseMessage();
 	void getMenu();
+	void getSubMenu();
 	void welcome();
+	void startGame();
 
 };

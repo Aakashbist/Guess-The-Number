@@ -2,7 +2,7 @@
 
 void HELPER::print(string message)
 {
-	cout << "    " << message;
+	cout << "\t\t" << message;
 }
 
 void HELPER::clearScreen()

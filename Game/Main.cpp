@@ -11,16 +11,38 @@ void main()
 	GAME game;
 	HELPER helper;
 	game.welcome();
-	int option;
+	int option, subOption;
 
 	do {
 		game.getMenu();
-		helper.print("Choose your option: ");
+		helper.print("\n\tChoose your option: ");
 		cin >> option;
 		switch (option)
 		{
 		case 1:
+			helper.clearScreen();
 			player.setPlayer();
+			do {
+				game.getSubMenu();
+				helper.print("\n\tChoose your option: ");
+				cin >> subOption;
+				switch (subOption)
+				{
+				case 1:
+					helper.clearScreen();
+					game.startGame();
+					break;
+				case 2:
+					//exit
+					break;
+				default:
+					helper.print("\n\tPlease choose valid options");
+					break;
+				}
+
+			} while (subOption != 2);
+			system("pause");
+			helper.clearScreen();
 			break;
 		case 2:
 			helper.clearScreen();
@@ -32,7 +54,7 @@ void main()
 			// ignore
 			break;
 		default:
-			helper.print("Please choose valid options");
+			helper.print("\tPlease choose valid options");
 			break;
 		}
 

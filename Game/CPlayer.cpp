@@ -17,20 +17,19 @@ HELPER helper;
 
 void PLAYER::setPlayer()
 {
-	helper.print("Enter your name: ");
+	helper.print("\n\nEnter your name: ");
 	cin >> name;
 	if (checkPlayer(name)) {
 		int score = getScore();
 		int level = getLevel();
-
-		string message = "Welcome Back " + name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
+		string message = "\tWelcome Back " + name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
 		helper.print(message);
 	}
 	else
 	{
 		fout.open(highscoreFile, ios::app);
 		fout << name << " 0 " << "0 " << endl;
-		cout << "Welcome " << name << "!!\n";
+		cout << "\tWelcome " << name << "  !!\n";
 	}
 }
 
