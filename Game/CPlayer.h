@@ -1,20 +1,21 @@
 #include<iostream>
 #include<string>
 
-class PLAYER{
-	private:
-		std::string name;
-		 int score,level;
+class PLAYER {
 
-	public:
-	
-		void setPlayer();
-		void setScore(int);
-	
-		void setLevel();
+private:
+	std::string name;
+	int score, level;
 
-		std::string getName(void);
-		int getScore(void);
-		bool checkPlayer(std::string);
-		int getLevel(void);
+public:
+	void setPlayer();
+	void setScore(int);
+
+	void setLevel();
+
+	std::string getName(void);
+	int getScore(void);
+	bool checkPlayer(std::string);
+	int getLevel(void);
+
 };

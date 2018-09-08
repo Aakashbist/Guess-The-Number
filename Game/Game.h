@@ -2,14 +2,14 @@
 
 class GAME {
 
-	private:
-		void readFile(std::string);
+private:
+	void readFile(std::string);
 
-	public:
-		void getInstruction();
-		void getWinMessage();
-		void getLoseMessage();
-		void getMenu();
-		void welcome();
+public:
+	void getInstruction();
+	void getWinMessage();
+	void getLoseMessage();
+	void getMenu();
+	void welcome();
 
 };

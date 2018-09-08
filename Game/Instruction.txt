@@ -1,16 +1,16 @@
 
 
-		***************************************** Help *************************************************
-		@@  								                              @@
-		@@        1. Choose the number using keyboard.                       		   	      @@
-		@@ 								        		      @@
-		@@        2. If guess is right next round will start                     		      @@
-		@@  								               		      @@
-		@@        3. If it's wrong guess user will enter number again.     			      @@
-		@@    								     			      @@
-		@@        4. At the end score will be calculated                      			      @@
-		@@    					 			      			      @@
-		@@        5. If score is highscore it will replace previous score.        		      @@
-		@@       					  		            		      @@
-		************************************************************************************************
+    ***************************************** Help ************************************************
+    @@                                                                                           @@
+    @@        1. Choose the number using keyboard.                                               @@
+    @@                                                                                           @@
+    @@        2. If guess is right next round will start                                         @@
+    @@                                                                                           @@
+    @@        3. If it's wrong guess user will enter number again.                               @@
+    @@                                                                                           @@
+    @@        4. At the end score will be calculated                                             @@
+    @@                                                                                           @@
+    @@        5. If score is highscore it will replace previous score.                           @@
+    @@                                                                                           @@
+    ***********************************************************************************************
 

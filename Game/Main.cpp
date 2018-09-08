@@ -9,7 +9,7 @@ void main()
 	GAME game;
 	game.welcome();
 	int option;
-	
+
 	do {
 		game.getMenu();
 		cout << "\tChoose your option:";
@@ -19,10 +19,8 @@ void main()
 		{
 		case 1:
 			player.setPlayer();
-
 			break;
 		case 2:
-			
 			game.getInstruction();
 			break;
 		default:
