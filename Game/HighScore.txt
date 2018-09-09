@@ -1,23 +1,2 @@
-aaa 0 0 
-bbb 0 0
-dilroop 120 50
-aakash 1 1
-roshana 0 0 
 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
-roshana 0 0 
+

@@ -6,9 +6,11 @@
 #include<time.h>
 #include"Settings.h"
 
+
 using namespace std;
 
 int firstcorrectAttempt = 0;
+
 
 void GAME::getInstruction()
 {
@@ -65,6 +67,7 @@ void GAME::startGame()
 					helper.print("wrong guess.your guess is above the exact guess ");
 				}
 				counter++;
+				
 				firstcorrectAttempt++;
 			}
 
