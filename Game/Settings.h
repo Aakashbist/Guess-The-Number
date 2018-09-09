@@ -1,5 +1,5 @@
 #define MAX_CHANCES 3
-#define MAX_VALUE 10
+#define MAX_VALUE 20
 
 #define instructionFile "Instruction.txt"
 #define winFile			"Win.txt"
