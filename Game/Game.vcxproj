@@ -112,12 +112,14 @@
   <ItemGroup>
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Settings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

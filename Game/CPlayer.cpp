@@ -1,8 +1,8 @@
+#include"Helper.h"
 #include"CPlayer.h"
 #include"Game.h"
 #include<fstream>
 #include<ctype.h>
-#include"Helper.h"
 #include<filesystem>
 #include"Settings.h"
 
@@ -17,19 +17,19 @@ HELPER helper;
 
 void PLAYER::setPlayer()
 {
-	helper.print("\n\nEnter your name: ");
+	helper.print("Enter your name: ");
 	cin >> name;
 	if (checkPlayer(name)) {
 		int score = getScore();
 		int level = getLevel();
-		string message = "\tWelcome Back " + name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
+		string message = "Welcome Back " + name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
 		helper.print(message);
 	}
 	else
 	{
 		fout.open(highscoreFile, ios::app);
 		fout << name << " 0 " << "0 " << endl;
-		cout << "\tWelcome " << name << "  !!\n";
+		helper.print("Welcome, "+name+" !!");
 	}
 }
 

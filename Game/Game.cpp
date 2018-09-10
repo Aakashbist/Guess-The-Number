@@ -52,24 +52,24 @@ void GAME::startGame()
 	num = rand() % MAX_VALUE;
 	while (counter != MAX_CHANCES)
 	{
-		helper.print("\n\n\tPlease enter your guess: ");
+		helper.print("\nPlease enter your guess: ");
 		cin >> guess;
 		if (num != guess) 
 		{
 			if (guess < num) 
 			{
-				helper.print("Wrong Guess. your guess is below the exact guess");
-							}
+				helper.print("Wrong Guess. your guess is below the Number");
+			}
 			else 
 			{
-				helper.print("wrong guess.your guess is above the exact guess ");
+				helper.print("Wrong Guess. your guess is above the Number");
 			}
 			counter++;
 			firstcorrectAttempt ++;
 		}
 		else 
 		{
-			helper.print(" \nCongratulation ");		
+			helper.print("Congratulation");		
 			firstcorrectAttempt ++;
 			break;
 		}
