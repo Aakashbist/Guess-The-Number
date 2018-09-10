@@ -4,8 +4,8 @@
 #include<ctype.h>
 #include"Helper.h"
 #include<filesystem>
+#include"Settings.h"
 
-#define highscoreFile "HighScore.txt"
 
 using namespace std;
 ofstream fout;
