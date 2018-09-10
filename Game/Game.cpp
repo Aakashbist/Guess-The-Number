@@ -52,31 +52,31 @@ void GAME::startGame()
 	num = rand() % MAX_VALUE;
 	while (counter != MAX_CHANCES)
 	{
-		helper.print("\nPlease enter your guess: ");
-		cin >> guess;
-		if (num != guess) 
-		{
-			if (guess < num) 
+			helper.print("\nPlease enter your guess: ");
+			cin >> guess;
+			if (num != guess)
 			{
-				helper.print("Wrong Guess. your guess is below the Number");
-			}
-			else 
-			{
-				helper.print("Wrong Guess. your guess is above the Number");
-			}
-			counter++;
-			firstcorrectAttempt ++;
-		}
-		else 
-		{
-			helper.print("Congratulation");		
-			firstcorrectAttempt ++;
-			break;
-		}
-		
-		
-	}
+				if (guess < num)
+				{
+					helper.print("Wrong Guess. your guess is below the Number");
+				}
+				else
+				{
+					helper.print("Wrong Guess. your guess is above the Number");
+				}
+				counter++;
+				firstcorrectAttempt++;
+			} else {
+				getWinMessage();
+				firstcorrectAttempt++;
+				break;
+			}	
 
+			if (counter == 3)
+			{
+				getLoseMessage();
+			}
+	}
 }
 
 void GAME::readFile(string fileName)

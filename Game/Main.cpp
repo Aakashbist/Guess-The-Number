@@ -29,7 +29,7 @@ void main()
 			helper.clearScreen();
 			break;
 		case 3:
-			// ignore
+			//ignore
 			break;
 		default:
 			helper.print("Please choose valid options");
