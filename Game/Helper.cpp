@@ -1,11 +1,11 @@
 #include "Helper.h"
 
-void HELPER::print(string message)
+void Helper::print(string message)
 {
 	cout << "\n" << "    " << message;
 }
 
-void HELPER::clearScreen()
+void Helper::clearScreen()
 {
 	system("CLS");
 }

@@ -6,83 +6,82 @@
 #include<time.h>
 #include"Settings.h"
 
-
 using namespace std;
 
 int firstcorrectAttempt = 0;
 
-
-void GAME::getInstruction()
+void Game::getInstruction()
 {
 	readFile(instructionFile);
 }
 
-void GAME::getWinMessage()
+void Game::getWinMessage()
 {
 	readFile(winFile);
 }
 
-void GAME::getLoseMessage()
+void Game::getLoseMessage()
 {
 	readFile(loseFile);
 }
 
 
-void GAME::getMenu()
-{	
+void Game::getMenu()
+{
 	readFile(menuFile);
 }
 
-void GAME::getSubMenu()
+void Game::getSubMenu()
 {
 	readFile(subMenuFile);
 }
 
 
-void GAME::welcome()
+void Game::welcome()
 {
 	readFile(welcomeFile);
 }
 
-void GAME::startGame()
+void Game::startGame()
 {
-	HELPER helper;
+	Helper helper;
 
-  	srand(time(NULL));
-	
-	int num, guess, counter = 0;	
+	srand(time(NULL));
+
+	int num, guess, counter = 0;
 	num = rand() % MAX_VALUE;
+	helper.print("You can guess the number from 0 -20.");
 	while (counter != MAX_CHANCES)
 	{
-			helper.print("\nPlease enter your guess: ");
-			cin >> guess;
-			if (num != guess)
+		helper.print("\nPlease enter your guess: ");
+		cin >> guess;
+		if (num != guess)
+		{
+			if (guess < num)
 			{
-				if (guess < num)
-				{
-					helper.print("Wrong Guess. your guess is below the Number");
-				}
-				else
-				{
-					helper.print("Wrong Guess. your guess is above the Number");
-				}
-				counter++;
-				
-				firstcorrectAttempt++;
-			} else {
-				getWinMessage();
-				firstcorrectAttempt++;
-				break;
-			}	
-
-			if (counter == 3)
-			{
-				getLoseMessage();
+				helper.print("Wrong Guess. your guess is below the Number");
 			}
+			else
+			{
+				helper.print("Wrong Guess. your guess is above the Number");
+			}
+			counter++;
+			firstcorrectAttempt++;
+		}
+		else {
+			getWinMessage();
+			firstcorrectAttempt++;
+			break;
+		}
+
+		if (counter == 3)
+		{
+			getLoseMessage();
+		}
 	}
 }
 
-void GAME::readFile(string fileName)
+void Game::readFile(string fileName)
 {
 	ifstream fin;
 	string line;

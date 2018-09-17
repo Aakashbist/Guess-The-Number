@@ -1,14 +1,22 @@
 #include"Helper.h"
 #include"GameLoop.h"
 
-void GAMELOOP::startGame(GAME game, PLAYER player) {
+void GameLoop::startGame(Game game, Player player) {
 
-	HELPER helper;
+	Helper helper;
 	int subOption;
 
 	helper.clearScreen();
-	player.setPlayer();
+
+	//pass player 
+
+	char* name = new char[50];
+	helper.print("Enter your Name: ");
+	cin.getline(name, 50);
+	player.setPlayer(name);
+
 	do {
+
 		game.getSubMenu();
 		helper.print("Choose your option: ");
 		cin >> subOption;

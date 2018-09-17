@@ -1,7 +1,8 @@
+# define _CRT_SECURE_NO_DEPRECATE
 #include"Game.h"
-#include"CPlayer.h"
+#include"Player.h"
 
-class GAMELOOP {
+class GameLoop {
 public:
-	void startGame(GAME, PLAYER);
+	void startGame(Game, Player);
 };

@@ -1,3 +1,4 @@
+# define _CRT_SECURE_NO_DEPRECATE
 #define MAX_CHANCES 3
 #define MAX_VALUE 10
 

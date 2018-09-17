@@ -1,10 +1,12 @@
+# define _CRT_SECURE_NO_DEPRECATE
+
 #include<string>
 
-class GAME {
+class Game {
 
 private:
 	void readFile(std::string);
-	
+
 public:
 	void getInstruction();
 	void getWinMessage();
