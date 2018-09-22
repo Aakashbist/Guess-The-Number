@@ -50,7 +50,7 @@ void Game::startGame()
 
 	int num, guess, counter = 0;
 	num = rand() % MAX_VALUE;
-	helper.print("You can guess the number from 0 -20.");
+	helper.print("You can guess the number from 0 - 20.");
 	while (counter != MAX_CHANCES)
 	{
 		helper.print("\nPlease enter your guess: ");

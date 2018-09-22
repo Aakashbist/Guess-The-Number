@@ -2,7 +2,7 @@
 
 void Helper::print(string message)
 {
-	cout << "\n" << "    " << message;
+	cout << "\n\t" << message;
 }
 
 void Helper::clearScreen()

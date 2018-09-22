@@ -32,9 +32,6 @@ Player::~Player()
 
 void Player::setPlayer(char* name)
 {
-	helper.print("Enter your name: ");
-
-	cin >> name;
 	if (checkPlayer(name)) {
 		int score = getScore();
 		int level = getLevel();
