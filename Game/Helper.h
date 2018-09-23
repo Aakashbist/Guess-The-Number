@@ -9,4 +9,5 @@ class Helper {
 public:
 	void print(string message);
 	void clearScreen();
+	void gotoxy(int x, int y);
 };

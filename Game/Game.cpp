@@ -4,11 +4,17 @@
 #include<fstream>
 #include<stdlib.h>
 #include<time.h>
+#include <cstdio>
+#include <ctime>
+#include<conio.h>
+#include <thread>
+#include<Windows.h>
 #include"Settings.h"
 
 using namespace std;
 
 int firstcorrectAttempt = 0;
+int counter = 0;
 
 void Game::getInstruction()
 {
@@ -42,43 +48,65 @@ void Game::welcome()
 	readFile(welcomeFile);
 }
 
+
+void displayTime() {
+	Helper helper;
+	double duration;
+	std::clock_t start = std::clock();
+	while (counter!= MAX_CHANCES) {
+		duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+		string time = "GUESS THE NUMBER               Time: " + std::to_string((int)duration) + " sec";
+		if ((int)duration >= GAME_END_TIME) {
+			counter = MAX_CHANCES; // NOT GOOD WAY TO END GAME
+			// ADD A BETTER END GAME CODE HERE
+		}
+		SetConsoleTitle(time.c_str());
+		Sleep(1000);
+	}
+}
+
 void Game::startGame()
 {
-	Helper helper;
-
+	counter = 0;
+	Helper *helper = new Helper();
 	srand(time(NULL));
-
-	int num, guess, counter = 0;
+	std::thread first(displayTime);
+	int num, guess;
 	num = rand() % MAX_VALUE;
-	helper.print("You can guess the number from 0 - 20.");
+	helper->print("You can guess the number from 0 - 20.");
+	
 	while (counter != MAX_CHANCES)
 	{
-		helper.print("\nPlease enter your guess: ");
+		helper->print("Please enter your guess: ");
 		cin >> guess;
 		if (num != guess)
 		{
 			if (guess < num)
 			{
-				helper.print("Wrong Guess. your guess is below the Number");
+				helper->print("Wrong Guess. your guess is below the Number");
 			}
 			else
 			{
-				helper.print("Wrong Guess. your guess is above the Number");
+				helper->print("Wrong Guess. your guess is above the Number");
 			}
 			counter++;
-			firstcorrectAttempt++;
 		}
 		else {
-			getWinMessage();
 			firstcorrectAttempt++;
+			getWinMessage();
 			break;
 		}
 
-		if (counter == 3)
+		if (counter == MAX_CHANCES)
 		{
 			getLoseMessage();
+			break;
 		}
 	}
+	delete helper;
+	first.join ();
+	SetConsoleTitle("GUESS THE NUMBER");
+
 }
 
 void Game::readFile(string fileName)
@@ -94,3 +122,4 @@ void Game::readFile(string fileName)
 	}
 	fin.close();
 }
+

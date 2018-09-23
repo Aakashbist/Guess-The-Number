@@ -42,7 +42,7 @@ void Player::setPlayer(char* name)
 	{
 		fout.open(highscoreFile, ios::app);
 		fout << name << " 0 " << "0 " << endl;
-		//helper.print("Welcome, "+name+" !!");
+		//helper.print("welcome, "+name+" !!");
 		fout.close();
 	}
 }
@@ -66,8 +66,7 @@ int Player::getScore(void)
 {
 	fin.open(highscoreFile);
 	fin >> score;
-	cout << score;
-	return 0;
+	return score;
 }
 
 bool Player::checkPlayer(char* name)

@@ -6,6 +6,7 @@ using namespace std;
 
 void main()
 {
+	SetConsoleTitle("GUESS THE NUMBER");
 	Player *player = new Player;
 	Game *game = new Game;
 	Helper *helper = new Helper;
