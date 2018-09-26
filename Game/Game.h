@@ -15,5 +15,5 @@ public:
 	void getSubMenu();
 	void welcome();
 	void startGame();
-
+	
 };

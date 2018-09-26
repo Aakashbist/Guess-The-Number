@@ -14,7 +14,6 @@ void GameLoop::startGame(Game game, Player player) {
 	player.setPlayer(name);
 
 	do {
-
 		game.getSubMenu();
 		helper->print("Choose your option: ");
 		cin >> subOption;

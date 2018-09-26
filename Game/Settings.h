@@ -2,7 +2,8 @@
 #define GAME_NAME "GUESS THE NUMBER "
 #define MAX_CHANCES 3
 #define MAX_VALUE 10
-#define GAME_END_TIME 60 // seconds
+#define GAME_END_TIME 560 // seconds
+#define MAX_GUESS_AllOW 1000
 
 #define instructionFile "Instruction.txt"
 #define winFile			"Win.txt"

@@ -35,7 +35,7 @@ void Player::setPlayer(char* name)
 	if (checkPlayer(name)) {
 		int score = getScore();
 		int level = getLevel();
-		//	string message = "Welcome Back " + *name + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
+		//string message = "Welcome Back " + MAX_GUESS_AllOW + "    Score: " + std::to_string(score) + "      Level: " + std::to_string(level) + "!!\n";
 		//helper.print(message);
 	}
 	else

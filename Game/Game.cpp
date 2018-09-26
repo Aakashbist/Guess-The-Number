@@ -51,14 +51,20 @@ void Game::welcome()
 
 void displayTime() {
 	Helper helper;
+	Game game;
 	double duration;
 	std::clock_t start = std::clock();
-	while (counter!= MAX_CHANCES) {
+	while (counter != MAX_CHANCES) {
 		duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 		string time = "GUESS THE NUMBER               Time: " + std::to_string((int)duration) + " sec";
 		if ((int)duration >= GAME_END_TIME) {
 			counter = MAX_CHANCES; // NOT GOOD WAY TO END GAME
 			// ADD A BETTER END GAME CODE HERE
+			helper.print("Time up!!");
+			game.getLoseMessage();
+			system("pause");
+			game.getMenu();
+
 		}
 		SetConsoleTitle(time.c_str());
 		Sleep(1000);
@@ -71,43 +77,59 @@ void Game::startGame()
 	Helper *helper = new Helper();
 	srand(time(NULL));
 	std::thread first(displayTime);
-	int num, guess;
+
+	int num, guess, option;
 	num = rand() % MAX_VALUE;
 	helper->print("You can guess the number from 0 - 20.");
-	
-	while (counter != MAX_CHANCES)
+	//and here 
+	// run first 3 time and if lose or win ask user to continue y/n if y run the loop again
+	do
 	{
-		helper->print("Please enter your guess: ");
-		cin >> guess;
-		if (num != guess)
-		{
-			if (guess < num)
-			{
-				helper->print("Wrong Guess. your guess is below the Number");
+		while (counter < MAX_CHANCES) {
+			helper->print("Please enter your guess: ");
+			cin >> guess;
+			if (guess > 1000) {
+				{
+					string message = " you can guess only number between " + to_string(MAX_GUESS_AllOW) + '\n';
+					helper->print(message);
+				}
 			}
-			else
-			{
-				helper->print("Wrong Guess. your guess is above the Number");
+			else {
+				if (num != guess)
+				{
+					if (guess < num)
+					{
+						helper->print("Wrong Guess. your guess is below the Number");
+					}
+					else
+					{
+						helper->print("Wrong Guess. your guess is above the Number");
+					}
+					counter++;
+				}
+				else {
+					firstcorrectAttempt++;
+					getWinMessage();
+					break;
+				}
 			}
-			counter++;
-		}
-		else {
-			firstcorrectAttempt++;
-			getWinMessage();
-			break;
+			if (counter == MAX_CHANCES)
+			{
+				getLoseMessage();
+				break;
+			}
 		}
 
-		if (counter == MAX_CHANCES)
-		{
-			getLoseMessage();
-			break;
-		}
-	}
+		helper->print("Do you want to continue: ");
+		cin >> option;
+
+	} while (option != 'n' || option != 'N');
 	delete helper;
-	first.join ();
+	first.join();
 	SetConsoleTitle("GUESS THE NUMBER");
-
 }
+
+
 
 void Game::readFile(string fileName)
 {
