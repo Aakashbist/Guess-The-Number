@@ -10,4 +10,6 @@ public:
 	void print(string message);
 	void clearScreen();
 	void gotoxy(int x, int y);
+	int validateAndGetNumber(string label);
+	string validateAndGetString(string label);
 };

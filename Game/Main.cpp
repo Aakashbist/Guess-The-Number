@@ -17,13 +17,11 @@ void main()
 
 	do {
 		game->getMenu();
-		helper->print("Choose your option: ");
-		cin >> option;
-		//check code here
-		if (!isdigit(option)) {
-			helper->print("Please choose valid option: ");
-		}
-		else
+		string str = helper->validateAndGetString("Choose alphabet :");
+		helper->print(str + " Accepted");
+		option = helper->validateAndGetNumber("Choose your option : ");
+		helper->print(option + " Accepted");
+		while(option!=3)
 		{
 			switch (option)
 			{
