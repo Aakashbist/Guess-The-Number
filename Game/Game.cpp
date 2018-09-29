@@ -78,21 +78,20 @@ void Game::startGame()
 	srand(time(NULL));
 	std::thread first(displayTime);
 
-	int num, guess, option;
+	int num, guess;
+	string option;
 	num = rand() % MAX_VALUE;
 	helper->print("You can guess the number from 0 - 20.");
 	//and here 
 	// run first 3 time and if lose or win ask user to continue y/n if y run the loop again
 	do
 	{
+		counter = 0;
 		while (counter < MAX_CHANCES) {
-			helper->print("Please enter your guess: ");
-			cin >> guess;
+			guess = helper->validateAndGetNumber("Please enter your guess: ");
 			if (guess > 1000) {
-				{
-					string message = " you can guess only number between " + to_string(MAX_GUESS_AllOW) + '\n';
-					helper->print(message);
-				}
+				string message = "You can guess only number between " + to_string(MAX_GUESS_AllOW) + "\n\n";
+				helper->print(message);
 			}
 			else {
 				if (num != guess)
@@ -120,10 +119,9 @@ void Game::startGame()
 			}
 		}
 
-		helper->print("Do you want to continue: ");
-		cin >> option;
+		option = helper->validateAndGetString("Do you want to continue (y/n) : ");
 
-	} while (option != 'n' || option != 'N');
+	} while (option != "n" || option != "N");
 	delete helper;
 	first.join();
 	SetConsoleTitle("GUESS THE NUMBER");

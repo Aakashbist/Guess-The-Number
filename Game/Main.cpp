@@ -17,10 +17,7 @@ void main()
 
 	do {
 		game->getMenu();
-		string str = helper->validateAndGetString("Choose alphabet :");
-		helper->print(str + " Accepted");
 		option = helper->validateAndGetNumber("Choose your option : ");
-		helper->print(option + " Accepted");
 		while(option!=3)
 		{
 			switch (option)
