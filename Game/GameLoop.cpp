@@ -1,27 +1,26 @@
 #include"Helper.h"
 #include"GameLoop.h"
 
-void GameLoop::startGame(Game game, Player player) {
 
+
+void GameLoop::startGame(Game game, Player player) {
+	string name = player.getName();
+	int score = player.getScore();
 	Helper *helper = new Helper();
 	int subOption;
 
 	helper->clearScreen();
 
-	char* name = new char[50];
-	helper->print("Enter your Name: ");
-	cin >> name;
-	player.setPlayer(name);
-
 	do {
+		string message=" welcome "+name + "\t your score is " +to_string(score)+ "\n\n";
+		helper->print(message);
 		game.getSubMenu();
-		helper->print("Choose your option: ");
-		cin >> subOption;
+		subOption = helper->validateAndGetNumber("Choose your option : ");
 		switch (subOption)
 		{
 		case 1:
 			helper->clearScreen();
-			game.startGame();
+			game.playGame(name,score);
 			break;
 		case 2:
 			//exit

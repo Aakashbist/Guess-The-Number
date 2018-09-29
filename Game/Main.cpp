@@ -2,25 +2,32 @@
 #include"Helper.h"
 #include<Windows.h>
 #include<ctype.h>
+#include "Settings.h"
 
 using namespace std;
 
 void main()
 {
-	SetConsoleTitle("GUESS THE NUMBER");
-	Player *player = new Player;
+
 	Game *game = new Game;
+	Player *player = new Player();
+	player->setName("Bikash");
+	player->setScore(player->getScore());
+	
 	Helper *helper = new Helper;
 	GameLoop *gameLoop = new GameLoop;
+	
+	SetConsoleTitle("GUESS THE NUMBER");
+	
 	game->welcome();
 	int option;
 
 	do {
 		game->getMenu();
 		option = helper->validateAndGetNumber("Choose your option : ");
-		while(option!=3)
+		/*while(option!=3)
 		{
-			switch (option)
+		*/	switch (option)
 			{
 			case 1:
 				gameLoop->startGame(*game, *player);
@@ -35,11 +42,8 @@ void main()
 				helper->print("Please choose valid options");
 				break;
 			}
-		}
+		//}
 
 	} while (option != 3);
-	delete player;
-	delete game;
-	delete helper;
-	delete game;
-}
+	delete player,game,helper;
+	}

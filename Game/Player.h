@@ -6,25 +6,18 @@ class Player {
 
 private:
 	char* name;
-	int score, level;
+	int score;
 
 
 
 public:
 
-	Player(char* = "Unknown", int = 0, int = 0);
+	Player(char* = "Unknown", int = 0);
 	~Player();
 
 	void setName(char*);
-	void setPlayer(char*);
+	std::string getName(void);
 	void setScore(int);
-
-
-	void setLevel();
-
-	char* getName(void);
 	int getScore(void);
-	bool checkPlayer(char*);
-	int getLevel(void);
-
+	
 };

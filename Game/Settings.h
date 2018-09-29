@@ -11,5 +11,5 @@
 #define menuFile		"Menu.txt"
 #define subMenuFile		"SubMenu.txt"
 #define welcomeFile		"Welcome.txt"
-
-#define highscoreFile "HighScore.txt"
+#define highScoreFile    "HighScore.txt"
+#define playerNameFile   "PlayerName.txt"

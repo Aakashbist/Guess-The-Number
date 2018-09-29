@@ -2,10 +2,11 @@
 
 #include<string>
 
+
 class Game {
 
 private:
-	void readFile(std::string);
+	
 
 public:
 	void getInstruction();
@@ -14,6 +15,7 @@ public:
 	void getMenu();
 	void getSubMenu();
 	void welcome();
-	void startGame();
+	void playGame(std::string,int);
+	std::string readFile(std::string);
 	
 };
