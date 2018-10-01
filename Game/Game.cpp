@@ -20,34 +20,34 @@ bool stopTimer = false;
 
 void Game::getInstruction()
 {
-	readFile(instructionFile);
+	readFile(instructionFile, true);
 }
 
 void Game::getWinMessage()
 {
-	readFile(winFile);
+	readFile(winFile, true);
 }
 
 void Game::getLoseMessage()
 {
-	readFile(loseFile);
+	readFile(loseFile, true);
 }
 
 
 void Game::getMenu()
 {
-	readFile(menuFile);
+	readFile(menuFile, true);
 }
 
 void Game::getSubMenu()
 {
-	readFile(subMenuFile);
+	readFile(subMenuFile, true);
 }
 
 
 void Game::welcome()
 {
-	readFile(welcomeFile);
+	readFile(welcomeFile, true);
 }
 
 
@@ -127,7 +127,7 @@ void Game::playGame(string name, int score)
 
 
 
-string Game::readFile(string fileName)
+string Game::readFile(string fileName, bool toPrint)
 {
 	ifstream fin;
 	string line;
@@ -136,7 +136,9 @@ string Game::readFile(string fileName)
 	while (!fin.eof())
 	{
 		getline(fin, line);
-		cout << line << "\n";
+		if (toPrint) {
+			cout << line << "\n";
+		}
 	}
 	fin.close();
 	return line;

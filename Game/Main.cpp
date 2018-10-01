@@ -17,7 +17,6 @@ void main()
 	GameLoop *gameLoop = new GameLoop;
 	
 	SetConsoleTitle("GUESS THE NUMBER");
-	
 	game->welcome();
 	int option;
 

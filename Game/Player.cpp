@@ -30,7 +30,7 @@ void Player::setName(char* name) {
 string Player::getName(void)
 {
 	Game *game = new Game();
-     string name= game->readFile(playerNameFile);
+     string name= game->readFile(playerNameFile, false);
 	 delete game;
 	 return name;
 }

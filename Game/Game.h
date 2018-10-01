@@ -16,6 +16,6 @@ public:
 	void getSubMenu();
 	void welcome();
 	void playGame(std::string,int);
-	std::string readFile(std::string);
+	std::string readFile(std::string, bool);
 	
 };
