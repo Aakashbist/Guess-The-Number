@@ -13,7 +13,6 @@ private:
 public:
 
 	Player(char* = "Unknown", int = 0);
-	~Player();
 
 	void setName(char*);
 	std::string getName(void);

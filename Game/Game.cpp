@@ -16,6 +16,7 @@ using namespace std;
 
 int firstcorrectAttempt = 0;
 int counter = 0;
+bool stopTimer = false;
 
 void Game::getInstruction()
 {
@@ -55,18 +56,9 @@ void displayTime() {
 	Game game;
 	double duration;
 	std::clock_t start = std::clock();
-	while (counter != MAX_CHANCES) {
+	while (!stopTimer) {
 		duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 		string time = "GUESS THE NUMBER              Time: " + std::to_string((int)duration) + " sec";
-		//if ((int)duration >= GAME_END_TIME) {
-		//	counter = MAX_CHANCES; // NOT GOOD WAY TO END GAME
-		//	// ADD A BETTER END GAME CODE HERE
-		//	helper.print("Time up!!");
-		//	game.getLoseMessage();
-		//	system("pause");
-		//	game.getMenu();
-
-		//}
 		SetConsoleTitle(time.c_str());
 		Sleep(1000);
 	}
@@ -79,14 +71,14 @@ void Game::playGame(string name, int score)
 
 	srand(time(NULL));
 	std::thread first(displayTime);
-	counter = 0;
-
+	
 	int num, guess,totalScore=score;
-	string option;
+	string option="y";
 	do
 	{	
 		num = rand() % MAX_VALUE;
-		helper->print("You can guess the number from 0 - 20.");
+		helper->clearScreen();
+		helper->print("You can guess the number from 0 - 10.\n");
 		counter = 0;
 		while (counter < MAX_CHANCES) {
 			guess = helper->validateAndGetNumber("Please enter your guess: ");
@@ -106,7 +98,6 @@ void Game::playGame(string name, int score)
 						helper->print("Wrong Guess. your guess is above the Number");
 					}
 					counter++;
-					totalScore += 2;
 					player->setScore(totalScore);
 				}
 				else {
@@ -118,7 +109,7 @@ void Game::playGame(string name, int score)
 			}
 			if (counter == MAX_CHANCES)
 			{
-				totalScore +=2;
+				totalScore +=1;
 				player->setScore(totalScore);
 				getLoseMessage();
 				break;
@@ -126,8 +117,9 @@ void Game::playGame(string name, int score)
 		}
 
 		option = helper->validateAndGetString("Do you want to continue (y/n) : ");
-		
-	} while (option != "n" || option != "N");
+
+	} while ((option.compare("n") != 0 && option.compare("N") != 0));
+	stopTimer = true;
 	first.join();
 	helper->clearScreen();
 	delete helper;

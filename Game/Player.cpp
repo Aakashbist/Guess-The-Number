@@ -19,13 +19,6 @@ Player::Player(char* name, int score)
 	
 }
 
-//Destructor
-Player::~Player()
-{
-	delete[] name;
-}
-
-
 void Player::setName(char* name) {
 	strcpy(this->name, name);
 	fout.open(playerNameFile);
@@ -55,6 +48,7 @@ int Player::getScore(void)
 {
 	fin.open(highScoreFile);
 	fin >> score;
+	fin.close();
 	return score;
 }
 

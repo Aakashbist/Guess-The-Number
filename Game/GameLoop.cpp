@@ -5,13 +5,13 @@
 
 void GameLoop::startGame(Game game, Player player) {
 	string name = player.getName();
-	int score = player.getScore();
 	Helper *helper = new Helper();
 	int subOption;
 
 	helper->clearScreen();
 
 	do {
+		int score = player.getScore();
 		string message=" welcome "+name + "\t your score is " +to_string(score)+ "\n\n";
 		helper->print(message);
 		game.getSubMenu();
