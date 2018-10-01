@@ -52,8 +52,6 @@ void Game::welcome()
 
 
 void displayTime() {
-	Helper helper;
-	Game game;
 	double duration;
 	std::clock_t start = std::clock();
 	while (!stopTimer) {

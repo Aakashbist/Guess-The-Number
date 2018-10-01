@@ -8,7 +8,6 @@ using namespace std;
 
 void main()
 {
-
 	Game *game = new Game;
 	Player *player = new Player();
 	player->setName("Bikash");
@@ -25,9 +24,7 @@ void main()
 	do {
 		game->getMenu();
 		option = helper->validateAndGetNumber("Choose your option : ");
-		/*while(option!=3)
-		{
-		*/	switch (option)
+		switch (option)
 			{
 			case 1:
 				gameLoop->startGame(*game, *player);
@@ -42,8 +39,6 @@ void main()
 				helper->print("Please choose valid options");
 				break;
 			}
-		//}
-
 	} while (option != 3);
 	delete player,game,helper;
 	}

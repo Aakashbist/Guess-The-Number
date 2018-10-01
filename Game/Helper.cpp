@@ -1,9 +1,7 @@
 #include "Helper.h"
 #include<Windows.h>
-#include<limits>
 #include<stdio.h> 
-#include<stdlib.h> 
-#undef max
+#include<stdlib.h>
 
 using namespace std;
 
@@ -46,7 +44,6 @@ int Helper::validateAndGetNumber(string label)
 			cin >> num;
 		}
 	}
-	// All digits to this point but is in string
 
 	return std::stoi(num);
 }

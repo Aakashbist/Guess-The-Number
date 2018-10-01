@@ -33,7 +33,6 @@ string Player::getName(void)
      string name= game->readFile(playerNameFile);
 	 delete game;
 	 return name;
-
 }
 
 void Player::setScore(int score)

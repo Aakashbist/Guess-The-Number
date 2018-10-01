@@ -12,7 +12,7 @@ void GameLoop::startGame(Game game, Player player) {
 
 	do {
 		int score = player.getScore();
-		string message=" welcome "+name + "\t your score is " +to_string(score)+ "\n\n";
+		string message=" Welcome "+name + "\t your score is " +to_string(score)+ "\n\n";
 		helper->print(message);
 		game.getSubMenu();
 		subOption = helper->validateAndGetNumber("Choose your option : ");
