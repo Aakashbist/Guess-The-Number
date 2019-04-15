@@ -2,7 +2,7 @@
 #include"GameLoop.h"
 
 
-
+// to run submenu 
 void GameLoop::startGame(Game game, Player player) {
 	string name = player.getName();
 	Helper *helper = new Helper();
@@ -12,7 +12,7 @@ void GameLoop::startGame(Game game, Player player) {
 
 	do {
 		int score = player.getScore();
-		string message=" Welcome "+name + "\t your score is " +to_string(score)+ "\n\n";
+		string message = " Welcome " + name + "\t your score is " + to_string(score) + "\n\n";
 		helper->print(message);
 		game.getSubMenu();
 		subOption = helper->validateAndGetNumber("Choose your option : ");
@@ -20,7 +20,7 @@ void GameLoop::startGame(Game game, Player player) {
 		{
 		case 1:
 			helper->clearScreen();
-			game.playGame(name,score);
+			game.playGame(name, score);
 			break;
 		case 2:
 			//exit

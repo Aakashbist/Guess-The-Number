@@ -13,11 +13,20 @@ ifstream fin;
 //Constructors
 Player::Player(char* name, int score)
 {
-	this->name = new char[strlen(name) + 1];
-	strcpy(this->name, name);
+	try {
+		this->name = new char[strlen(name) + 1];
+		strcpy(this->name, name);
+	}
+	catch (bad_alloc& badMemoryAllocation)
+	{
+
+		cout << "Error : " << badMemoryAllocation.what() << endl;
+	}
 	this->score = getScore();
-	
+
 }
+
+//set and get player name in file and from files
 
 void Player::setName(char* name) {
 	strcpy(this->name, name);
@@ -30,9 +39,9 @@ void Player::setName(char* name) {
 string Player::getName(void)
 {
 	Game *game = new Game();
-     string name= game->readFile(playerNameFile, false);
-	 delete game;
-	 return name;
+	string name = game->readFile(playerNameFile, false);
+	delete game;
+	return name;
 }
 
 void Player::setScore(int score)

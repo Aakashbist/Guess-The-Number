@@ -5,11 +5,14 @@
 
 using namespace std;
 
+
+// using this function instead of cout
 void Helper::print(string message)
 {
 	cout << "\n\t" << message;
 }
 
+//clear screen 
 void Helper::clearScreen()
 {
 	system("CLS");
@@ -21,6 +24,7 @@ void Helper::gotoxy(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
+//to validate numbers in options
 int Helper::validateAndGetNumber(string label)
 {
 	string num;
@@ -48,6 +52,7 @@ int Helper::validateAndGetNumber(string label)
 	return std::stoi(num);
 }
 
+//validate character input
 string Helper::validateAndGetString(string label)
 {
 	string num;
